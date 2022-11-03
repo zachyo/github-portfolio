@@ -1,6 +1,11 @@
 .App {
   text-align: center;
   /* background-color: #282c34; */
+  background-image: url('./assets/grid2.png');
+  position: relative;
+  background-position: center;
+   height: 100vh;
+  /* padding: 0 70px; */
 
 }
 
