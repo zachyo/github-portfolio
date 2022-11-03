@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useRef } from "react";
 
 function useFetch(url) {
+
   const cache = useRef({});
 
   // Used to prevent state update if the component is unmounted
@@ -24,6 +25,7 @@ function useFetch(url) {
         return state;
     }
   };
+  console.log("here");
 
   const [state, dispatch] = useReducer(fetchReducer, initialState);
 
@@ -49,7 +51,7 @@ function useFetch(url) {
         })
         .then((data) => {
           cache.current[url] = data;
-          // console.log(cache.current)
+          console.log(cache.current);
           if (cancelRequest.current) return;
 
           dispatch({ type: "fetched", payload: data });
