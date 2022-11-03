@@ -8,7 +8,7 @@ import Repos from './components/repos/repos';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="repos" element={<Repos/>} />
