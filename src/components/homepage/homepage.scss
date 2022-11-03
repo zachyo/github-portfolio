@@ -1,0 +1,82 @@
+.homepage {
+  //   background-image: url("../../assets/grid.png");
+  position: relative;
+  background-position: center;
+  height: 100vh;
+  padding: 0 50px;
+  color: #011ff3;
+
+  // background-size: cover;
+  // background-repeat: repeat;
+
+  // .background {
+  //     position: absolute;
+  //     opacity: .6;
+  //     left: 0;
+  //     right: 0;
+  // }
+  .header {
+    color: #011ff3;
+    display: flex;
+    flex-direction: column;
+    &-text {
+      position: relative;
+      height: 60vh;
+      h1,
+      h2 {
+        font-size: 165px;
+        margin: 0;
+        letter-spacing: 15px;
+        color: #011ff3;
+        text-align: left;
+        font-weight: 700;
+      }
+      h2 {
+        position: absolute;
+        top: 63%;
+      }
+      .one {
+        position: absolute;
+        left: 40px;
+        z-index: 3;
+      }
+      .two {
+        position: absolute;
+        top: 75px;
+        h1,
+        h2 {
+          -webkit-text-stroke: 2px #e48c25;
+          color: transparent;
+        }
+      }
+    }
+    .layer2 {
+      display: flex;
+      justify-content: space-between;
+      h1,
+      h2 {
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 90px 0;
+    .details {
+      text-align: left;
+    }
+    img {
+      // border-radius: 77% 23% 51% 49% / 34% 30% 70% 66% ;
+      border-radius: 47% 53% 84% 16% / 66% 51% 49% 34%;
+      transform: rotate(5deg);
+    }
+    a {
+        padding: 5px 15px;
+        border: 1px solid #011ff3;
+        text-decoration: none;
+    }
+  }
+}
