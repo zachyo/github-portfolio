@@ -97,10 +97,16 @@
       transform: rotate(5deg);
     }
     a {
-      padding: 5px 15px;
-      margin: 10px 0;
+      padding: 10px 15px;
+      // margin: 10px 0;
       border: 1px solid #011ff3;
       text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #011ff3;
     }
+    // h3::last-child {
+    //   margin-bottom: 100px;
+    // }
   }
 }
