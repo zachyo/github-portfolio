@@ -1,13 +1,17 @@
 import useFetch from "../useFetch2";
 import "./homepage.scss";
-// import background from "../../assets/grid.png";
+import { Link } from "react-router-dom";
+import circle from "../../assets/small-circle.png";
+// import background from "../../assets/grid2.png";
 
 const Homepage = () => {
   const url = `https://api.github.com/users/zachyo`;
 
   const { loading, error, data } = useFetch(url);
   console.log(data);
-
+  if (loading) {
+    return <>Loading...</>;
+  }
   if (!loading && error) {
     return <>Error</>;
   }
@@ -19,6 +23,19 @@ const Homepage = () => {
           <div className="homepage">
             {/* <img className='background' src={background} alt='background' /> */}
             <div className="header">
+              <div className="top-layer">
+                <div className="">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div className="shapes">
+                  <img src={circle} alt="circle" />
+                  <img src={circle} alt="circle" />
+                  <img src={circle} alt="circle" />
+                  <img src={circle} alt="circle" />
+                </div>
+              </div>
               <div className="layer1">
                 <div className=" header header-text">
                   <div className="one">
@@ -49,12 +66,14 @@ const Homepage = () => {
                 <h1>Name : {data.name}</h1>
                 <h2>Description : {data.bio}</h2>
                 <h3>
-                  <span style={{marginRight : '30px'}}>{data.followers} Followers</span>
+                  <span style={{ marginRight: "30px" }}>
+                    {data.followers} Followers
+                  </span>
                   <span>{data.following} Following</span>
                 </h3>
                 <h3>Repositories : {data.public_repos}</h3>
                 <h3>Location : {data.location}</h3>
-                <a href="repos">View Repos</a>
+                <Link to="repos">View Repos</Link>
               </div>
               <div className="img">
                 <img src={data.avatar_url} alt="profile" />
@@ -63,7 +82,6 @@ const Homepage = () => {
           </div>
         </>
       )}
-      <div className="profile-img"></div>
     </div>
     // <div className="">Homepage</div>
   );
