@@ -1,6 +1,7 @@
-import useFetch from "../useFetch2";
+import useFetch from "../useFetch";
 import { useState } from "react";
 import RepoCard from "../repo-card/repo-card";
+import Spinner from "../spinner/spinner.component";
 
 import "./repos.scss";
 
@@ -12,7 +13,7 @@ const Repos = () => {
   const { loading, error, data } = useFetch(url);
 
   const PER_PAGE = 4;
-  const total = data.length;
+  const total = data?.length;
   const pages = Math.ceil(total / PER_PAGE);
   console.log(data);
   //   console.log(pages,total);
@@ -20,7 +21,7 @@ const Repos = () => {
   const skip = page * PER_PAGE - PER_PAGE;
   //   console.log(skip, total);
   if (loading) {
-    return <>Loading...</>;
+    return <Spinner/>
   }
 
   if (!loading && error) {
@@ -30,7 +31,7 @@ const Repos = () => {
     <div className="repos">
       <h1>Repositories</h1>
       <div className="repo-cards">
-        {data.slice(skip, skip + PER_PAGE).map((repo, index) => {
+        {data?.slice(skip, skip + PER_PAGE).map((repo, index) => {
           return <RepoCard repo={repo} key={repo.id} />;
         })}
       </div>
@@ -59,6 +60,7 @@ const Repos = () => {
           Next
         </button>
       </div>
+      {/* <Outlet/> */}
     </div>
   );
 };
