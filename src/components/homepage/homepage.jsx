@@ -2,6 +2,9 @@ import useFetch from "../useFetch2";
 import "./homepage.scss";
 import { Link } from "react-router-dom";
 import circle from "../../assets/small-circle.png";
+import square from "../../assets/square.png";
+import triangle from "../../assets/triangle.png";
+import close from "../../assets/close.png";
 // import background from "../../assets/grid2.png";
 
 const Homepage = () => {
@@ -31,9 +34,9 @@ const Homepage = () => {
                 </div>
                 <div className="shapes">
                   <img src={circle} alt="circle" />
-                  <img src={circle} alt="circle" />
-                  <img src={circle} alt="circle" />
-                  <img src={circle} alt="circle" />
+                  <img src={square} alt="circle" />
+                  <img src={close} alt="circle" />
+                  <img src={triangle} alt="circle" />
                 </div>
               </div>
               <div className="layer1">
