@@ -1,10 +1,11 @@
-import useFetch from "../useFetch2";
+import useFetch from "../useFetch";
 import "./homepage.scss";
 import { Link } from "react-router-dom";
 import circle from "../../assets/small-circle.png";
 import square from "../../assets/square.png";
 import triangle from "../../assets/triangle.png";
 import close from "../../assets/close.png";
+import Spinner from "../spinner/spinner.component";
 // import background from "../../assets/grid2.png";
 
 const Homepage = () => {
@@ -12,9 +13,12 @@ const Homepage = () => {
 
   const { loading, error, data } = useFetch(url);
   console.log(data);
+
   if (loading) {
-    return <>Loading...</>;
+    return <Spinner/>;
   }
+
+  console.log(loading)
   if (!loading && error) {
     return <>Error</>;
   }
@@ -55,7 +59,7 @@ const Homepage = () => {
               </div>
               <div className="layer2">
                 <div className="" style={{ textAlign: "left" }}>
-                  <h1>{data.name.toUpperCase()}</h1>
+                  <h1>{data?.name?.toUpperCase()}</h1>
                   <h2>FRONTEND ENGINEER</h2>
                 </div>
                 <div className="" style={{ textAlign: "right" }}>
@@ -66,20 +70,20 @@ const Homepage = () => {
             </div>
             <div className="profile">
               <div className="details">
-                <h1>Name : {data.name}</h1>
-                <h2>Description : {data.bio}</h2>
+                <h1>Name : {data?.name}</h1>
+                <h2>Description : {data?.bio}</h2>
                 <h3>
                   <span style={{ marginRight: "30px" }}>
-                    {data.followers} Followers
+                    {data?.followers} Followers
                   </span>
-                  <span>{data.following} Following</span>
+                  <span>{data?.following} Following</span>
                 </h3>
-                <h3>Repositories : {data.public_repos}</h3>
-                <h3>Location : {data.location}</h3>
+                <h3>Repositories : {data?.public_repos}</h3>
+                <h3>Location : {data?.location}</h3>
                 <Link to="repos">View Repos</Link>
               </div>
               <div className="img">
-                <img src={data.avatar_url} alt="profile" />
+                <img src={data?.avatar_url} alt="profile" />
               </div>
             </div>
           </div>
