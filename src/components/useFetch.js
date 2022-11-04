@@ -8,8 +8,8 @@ function useFetch(url) {
   const cancelRequest = useRef(false);
 
   const initialState = {
-    error: undefined,
-    data: undefined,
+    error: null,
+    data: null,
     loading: false,
   };
 
@@ -30,11 +30,12 @@ function useFetch(url) {
   const [state, dispatch] = useReducer(fetchReducer, initialState);
 
   useEffect(() => {
+    console.log('running')
     if (!url) return;
 
     cancelRequest.current = false;
 
-    const fetchUsers = async () => {
+    const fetchUrl = async () => {
       dispatch({ type: "fetching" });
 
       // check cache first
@@ -63,13 +64,13 @@ function useFetch(url) {
         });
     };
 
-    fetchUsers();
+    fetchUrl();
 
     // cleanup
     return () => {
       cancelRequest.current = true;
     };
-  }, [url]);
+  }, []);
 
   return state;
 }
