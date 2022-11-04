@@ -103,7 +103,13 @@
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      color: #fff;
+        background-color: #011ff3;
+      &:hover {
       color: #011ff3;
+      background-color: transparent;
+        
+      }
     }
     // h3::last-child {
     //   margin-bottom: 100px;
