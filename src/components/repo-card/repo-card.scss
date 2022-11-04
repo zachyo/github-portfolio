@@ -7,7 +7,9 @@
   text-align: left;
   margin: 1.5rem;
   padding: 1.9rem;
-  box-shadow: 13.4061px 14.1509px 34.2601px 1.48957px rgba(223, 223, 223, 0.1);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.4);
   img {
     padding: 0.6rem;
     background-color: rgba(255, 255, 255, 0.5);
@@ -20,7 +22,11 @@
   }
   p {
     font-size: 1.4rem;
-    margin-bottom: 0;
+    margin-bottom: 15px;
+    margin-top: 10px;
     // font-weight: 400;
+  }
+  a {
+    color: #fff;
   }
 }
