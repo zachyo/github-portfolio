@@ -1,0 +1,40 @@
+.repos {
+  padding: 70px;
+  .repo-cards {
+    // width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .page-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    gap: 12px;
+    button {
+      padding: 9px 15px;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #011ff3;
+      border: none;
+      cursor: pointer;
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+    span {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+      outline: #011ff3 solid 2px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
+}
