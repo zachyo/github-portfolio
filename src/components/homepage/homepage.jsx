@@ -12,13 +12,13 @@ const Homepage = () => {
   const url = `https://api.github.com/users/zachyo`;
 
   const { loading, error, data } = useFetch(url);
-  console.log(data);
+  // console.log(data);
 
   if (loading) {
     return <Spinner/>;
   }
 
-  console.log(loading)
+  // console.log(loading)
   if (!loading && error) {
     return <>Error</>;
   }
