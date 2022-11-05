@@ -25,12 +25,12 @@ function useFetch(url) {
         return state;
     }
   };
-  console.log("here");
+  // console.log("here");
 
   const [state, dispatch] = useReducer(fetchReducer, initialState);
 
   useEffect(() => {
-    console.log('running')
+    // console.log('running')
     if (!url) return;
 
     cancelRequest.current = false;
@@ -52,7 +52,7 @@ function useFetch(url) {
         })
         .then((data) => {
           cache.current[url] = data;
-          console.log(cache.current);
+          // console.log(cache.current);
           if (cancelRequest.current) return;
 
           dispatch({ type: "fetched", payload: data });
