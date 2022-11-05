@@ -5,16 +5,10 @@
   // height: 100vh;
   padding: 0 70px;
   color: #011ff3;
+  @media (max-width: 425px) {
+    padding: 0 20px;
+  }
 
-  // background-size: cover;
-  // background-repeat: repeat;
-
-  // .background {
-  //     position: absolute;
-  //     opacity: .6;
-  //     left: 0;
-  //     right: 0;
-  // }
   .header {
     color: #011ff3;
     display: flex;
@@ -51,6 +45,9 @@
         color: #011ff3;
         text-align: left;
         font-weight: 700;
+        @media (max-width: 425px) {
+          font-size: 100px;
+        }
       }
       h2 {
         position: absolute;
@@ -74,6 +71,10 @@
     .layer2 {
       display: flex;
       justify-content: space-between;
+      @media (max-width: 425px) {
+        flex-direction: column;
+        gap: 30px;
+      }
       h1,
       h2 {
         margin: 0;
@@ -85,9 +86,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 90px 0;
+    margin-top: 90px;
     gap: 150px;
     padding: 30px;
+    @media (max-width: 425px) {
+      flex-direction: column-reverse;
+      gap: 10px;
+    }
     .details {
       text-align: left;
     }
@@ -95,6 +100,9 @@
       // border-radius: 77% 23% 51% 49% / 34% 30% 70% 66% ;
       border-radius: 47% 53% 84% 16% / 66% 51% 49% 34%;
       transform: rotate(5deg);
+      @media (max-width: 425px) {
+        height: 315px;
+      }
     }
     a {
       padding: 10px 15px;
@@ -104,11 +112,10 @@
       border-radius: 5px;
       font-weight: bold;
       color: #fff;
-        background-color: #011ff3;
+      background-color: #011ff3;
       &:hover {
-      color: #011ff3;
-      background-color: transparent;
-        
+        color: #011ff3;
+        background-color: transparent;
       }
     }
     // h3::last-child {
