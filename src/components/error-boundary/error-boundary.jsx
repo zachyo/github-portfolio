@@ -18,7 +18,7 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div className="error-boundary">
-          <h1>Something unplanned for just occurred</h1>
+          <h1>Something unplanned for just occurred!!</h1>
           <p>{this.state.errorInfo}</p>
         </div>
       );
