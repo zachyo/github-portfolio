@@ -4,42 +4,36 @@ import RepoCard from "../repo-card/repo-card";
 import Spinner from "../spinner/spinner.component";
 
 import "./repos.scss";
-import { useEffect } from "react";
 import { searchFilter } from "../../utilities/searchFilter";
 
 const Repos = () => {
   const [page, setPage] = useState(1);
-  const [search, setSearch] = useState(undefined)
+  const [search, setSearch] = useState(undefined);
 
   const url = `https://api.github.com/users/zachyo/repos`;
 
   const { loading, error, data } = useFetch(url);
-  let newData = data;
 
   //searching system
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    // setSearch({ ...search, [name]: value });
-    setSearch(value)
+    setSearch(event.target.value);
   };
-
-  useEffect(()=> {
-    if (search) {
-      newData = searchFilter(search,data)
-    }
-  },[search])
-
+  let newData = data;
+  if (search) {
+    newData = searchFilter(search, data);
+    console.log(newData);
+  }
 
   //paging system
   const PER_PAGE = 4;
-  const total = data?.length;
+  const total = newData?.length;
   const pages = Math.ceil(total / PER_PAGE);
   console.log(data);
   //   console.log(pages,total);
   const skip = page * PER_PAGE - PER_PAGE;
   //   console.log(skip, total);
   if (loading) {
-    return <Spinner/>
+    return <Spinner />;
   }
 
   if (!loading && error) {
@@ -56,7 +50,7 @@ const Repos = () => {
         onChange={handleChange}
       />
       <div className="repo-cards">
-        {data?.slice(skip, skip + PER_PAGE).map((repo, index) => {
+        {newData?.slice(skip, skip + PER_PAGE).map((repo, index) => {
           return <RepoCard repo={repo} key={repo.id} />;
         })}
       </div>
