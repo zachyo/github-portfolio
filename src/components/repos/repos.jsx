@@ -56,7 +56,7 @@ const Repos = () => {
       </div>
 
       <h3 className="pagination">
-        Pages: {page} of {pages}
+        Pages: {newData?.length>0 ? page : 0} of {pages}
       </h3>
       <div className="page-btns">
         <button
