@@ -18,6 +18,7 @@ const Repos = () => {
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
+  
   let newData = data;
   if (search) {
     newData = searchFilter(search, data);
