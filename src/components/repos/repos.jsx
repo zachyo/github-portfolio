@@ -1,4 +1,4 @@
-import useFetch from "../useFetch";
+import useFetch from "../../utilities/useFetch";
 import { useState } from "react";
 import RepoCard from "../repo-card/repo-card";
 import Spinner from "../spinner/spinner.component";
@@ -18,7 +18,7 @@ const Repos = () => {
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
-  
+
   let newData = data;
   if (search) {
     newData = searchFilter(search, data);
@@ -32,14 +32,7 @@ const Repos = () => {
   console.log(data);
   //   console.log(pages,total);
   const skip = page * PER_PAGE - PER_PAGE;
-  //   console.log(skip, total);
-  if (loading) {
-    return <Spinner />;
-  }
 
-  if (!loading && error) {
-    return <>Error</>;
-  }
   return (
     <div className="repos">
       <h1>Repositories</h1>
@@ -47,17 +40,28 @@ const Repos = () => {
         type="text"
         value={search}
         name="search"
-        placeholder="Search..."
+        placeholder="search..."
         onChange={handleChange}
       />
       <div className="repo-cards">
-        {newData?.slice(skip, skip + PER_PAGE).map((repo, index) => {
-          return <RepoCard repo={repo} key={repo.id} />;
-        })}
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            {newData?.slice(skip, skip + PER_PAGE).map((repo, index) => {
+              return <RepoCard repo={repo} key={repo.id} />;
+            })}
+          </>
+        )}
       </div>
+      {error ? (
+        <>Failed to fetch. Kindly check your internet connection</>
+      ) : (
+        <></>
+      )}
 
       <h3 className="pagination">
-        Pages: {newData?.length>0 ? page : 0} of {pages}
+        Pages: {newData?.length > 0 ? page : 0} of {pages}
       </h3>
       <div className="page-btns">
         <button
@@ -80,7 +84,6 @@ const Repos = () => {
           Next
         </button>
       </div>
-      {/* <Outlet/> */}
     </div>
   );
 };
