@@ -1,4 +1,4 @@
-import useFetch from "../useFetch";
+import useFetch from "../../utilities/useFetch";
 import "./homepage.scss";
 import { Link } from "react-router-dom";
 import circle from "../../assets/small-circle.png";
@@ -18,9 +18,17 @@ const Homepage = () => {
     return <Spinner/>;
   }
 
-  // console.log(loading)
+  console.log(loading)
   if (!loading && error) {
-    return <>Error</>;
+    return (
+      <>
+        {error ? (
+          <>Failed to fetch. Kindly check your internet connection.</>
+        ) : (
+          <></>
+        )}
+      </>
+    );
   }
 
   return (
